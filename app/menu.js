@@ -56,6 +56,14 @@ var createDefaultMenu = function(app, checkForUpdates) {
           label: 'File',
           submenu: [
             {
+              label: 'New Message',
+              accelerator: 'Command+N',
+              click: function() {
+                var mainWindow = BrowserWindow.fromId(1);
+                mainWindow.webContents.send('triggerWindowEvent', 'open-mixmax-compose');
+              }
+            },
+            {
               label: 'Refresh',
               accelerator: 'Command+R',
               click: function() {
