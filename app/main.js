@@ -99,12 +99,10 @@ app.on("ready", function(){
 app.on("before-quit", function(){
   // We need to remove our close event handler from the main window,
   // otherwise the app will not quit.
-  var mainWindow = BrowserWindow.fromId(1);
   mainWindow.removeListener('close', hideInsteadofClose);
 });
 
 app.on("activate", function(){
   // Show the main window when the customer clicks on the app icon.
-  var mainWindow = BrowserWindow.fromId(1);
   if (!mainWindow.isVisible()) mainWindow.show();
 });
