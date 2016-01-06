@@ -280,6 +280,13 @@ function getPackagerSettings(buildInfo, dirs){
   if (electronSettings.protocols) {
     packagerSettings.protocols = electronSettings.protocols;
   }
+  if (electronSettings.asar) {
+    packagerSettings.asar = true;
+    if (electronSettings['asar-unpack']) {
+      packagerSettings['asar-unpack'] = electronSettings['asar-unpack'];
+    }
+  }
+
   return packagerSettings;
 }
 

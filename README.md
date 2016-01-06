@@ -86,7 +86,12 @@ Limited configuration is possible via `Meteor.settings.electron` For example
     }],
     // A directory of code to use instead of meteor-electron's default application, relative to your
     // app's project directory. See warning below!
-    "appSrcDir": "private/app"
+    "appSrcDir": "private/app",
+    // Whether to package the application's source code into an archive.
+    // See http://electron.atom.io/docs/v0.36.0/tutorial/application-packaging/.
+    "asar": true,
+    // Files to filter out of the ASAR archive. See https://github.com/atom/asar/pull/25.
+    "asar-unpack": "*.node"
   }
 }
 ```
