@@ -3,8 +3,8 @@
 Package.describe({
   name: 'meson:electron',
   summary: "Electron",
-  version: "0.1.3",
-  git: "https://github.com/rissem/meteor-electron"
+  version: "0.1.4",
+  git: "https://github.com/electron-webapps/meteor-electron"
 });
 
 Npm.depends({
@@ -21,7 +21,7 @@ Npm.depends({
 
 Package.onUse(function (api) {
   api.versionsFrom("METEOR@1.0");
-  api.use(["mongo-livedata", "webapp", "ejson", "promise"], "server");
+  api.use(["mongo-livedata", "webapp", "ejson", "promise@0.6.7"], "server");
   api.use("underscore", ["server", "client"]);
   api.use(["iron:router@0.9.4||1.0.0"], {weak: true});
   api.use("meteorhacks:picker@1.0.0", "server", {weak: true});
