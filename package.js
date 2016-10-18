@@ -8,7 +8,7 @@ Package.describe({
 });
 
 Npm.depends({
-  "electron-packager": "https://github.com/mixmaxhq/electron-packager/archive/f511e2680efa39c014d8bedca872168e585f8daf.tar.gz",
+  "electron-packager": "8.1.0",
   "is-running": "1.0.5",
   "lucy-dirsum": "0.1.1",
   "mkdirp": "0.5.1",

@@ -218,7 +218,8 @@ createBinaries = function() {
 
     results[buildInfo.platform + "-" + buildInfo.arch] = {
       app: app,
-      buildRequired: buildRequired
+      buildRequired: buildRequired,
+      appName: appName
     };
   });
 
@@ -268,11 +269,13 @@ function getPackagerSettings(buildInfo, dirs){
     arch: buildInfo.arch,
     version: ELECTRON_VERSION,
     out: dirs.build,
-    cache: dirs.binary,
+    download: {
+      cache: dirs.binary
+    },
     overwrite: true,
     // The EXE's `ProductName` is the preferred title of application shortcuts created by `Squirrel.Windows`.
     // If we don't set it, it will default to "Electron".
-    'version-string': {
+    win32metadata: {
       ProductName: electronSettings.name || 'Electron'
     }
   };
@@ -288,10 +291,12 @@ function getPackagerSettings(buildInfo, dirs){
     }
   }
   if (electronSettings.sign) {
-    packagerSettings.sign = electronSettings.sign;
+    packagerSettings['osx-sign'] = {
+      identity: electronSettings.sign
+    };
   }
   if (electronSettings.protocols) {
-    packagerSettings.protocols = electronSettings.protocols;
+    packagerSettings.protocol = electronSettings.protocols;
   }
   return packagerSettings;
 }

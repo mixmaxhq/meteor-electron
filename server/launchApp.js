@@ -12,7 +12,8 @@ var ProcessManager = {
   running: function(){
     var runningProcess;
     ElectronProcesses.find().forEach(function(proc){
-      if (isRunning(proc.pid)){
+      // First clause is safety belts.
+      if (proc.pid && isRunning(proc.pid)){
         runningProcess = proc.pid;
       } else {
         ElectronProcesses.remove({ _id: proc._id });
@@ -27,7 +28,7 @@ var ProcessManager = {
   }
 };
 
-launchApp = function(app, appIsNew) {
+launchApp = function(app, appIsNew, appName) {
   // Safeguard.
   if (process.env.NODE_ENV !== 'development') return;
 
@@ -45,7 +46,7 @@ launchApp = function(app, appIsNew) {
     electronExecutable = app;
     child = proc.spawn(electronExecutable);
   } else {
-    electronExecutable = path.join(app, "Contents", "MacOS", "Electron");
+    electronExecutable = path.join(app, "Contents", "MacOS", appName || "Electron");
     var appDir = path.join(app, "Contents", "Resources", "app");
 
     //TODO figure out how to handle case where electron executable or
