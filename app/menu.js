@@ -1,5 +1,5 @@
-var BrowserWindow = require('browser-window');
-var Menu = require('menu');
+var BrowserWindow = require('electron').BrowserWindow;
+var Menu = require('electron').Menu;
 
 /**
  * Creates a default menu. Modeled after https://github.com/atom/electron/pull/1863, augmented with
