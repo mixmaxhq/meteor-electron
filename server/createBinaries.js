@@ -35,7 +35,7 @@ var projectRoot = function(){
   }
 };
 
-var ELECTRON_VERSION = '0.36.7';
+var ELECTRON_VERSION = '1.4.3';
 
 var electronSettings = Meteor.settings.electron || {};
 
@@ -145,7 +145,7 @@ createBinaries = function() {
       Promise.await(electronRebuild.installNodeHeaders(ELECTRON_VERSION, null /* nodeDistUrl */,
         null /* headersDir */, buildInfo.arch));
       Promise.await(electronRebuild.rebuildNativeModules(ELECTRON_VERSION,
-        path.join(buildDirs.app, 'node_modules'), null /* headersDir */, buildInfo.arch));
+        path.join(buildDirs.app, 'node_modules'), null /* whichModule */, null /* headersDir */, buildInfo.arch));
     }
 
     /* Write out Electron Settings */

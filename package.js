@@ -16,7 +16,7 @@ Npm.depends({
   "rimraf": "2.4.4",
   "semver": "5.1.0",
   "url-join": "0.0.1",
-  "electron-rebuild": "1.0.1"
+  "electron-rebuild": "1.2.1"
 });
 
 Package.onUse(function (api) {
